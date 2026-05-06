@@ -24,7 +24,9 @@ INSERT INTO skills (name) VALUES
   ('PostgreSQL'),
   ('Node.js'),
   ('Python'),
-  ('HTML/CSS');
+  ('HTML/CSS'),
+  ('Docker'),
+  ('PHP');
 
 --Insérer les données pour Ressources_skills table de liaison :
 
@@ -37,4 +39,4 @@ INSERT INTO resources_skills (resource_id, skill_id) VALUES
   (4,	1),
   (4,	5),
   (5,	6),
-  (6,	7);
+  (6, 7);
