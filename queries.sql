@@ -39,5 +39,10 @@ SELECT resources.title, resources.url, array_agg(skills.name) AS skills
   GROUP BY resources.id, resources.title;
 
 -- Les 5 ressources les plus récentes avec leur thème:
+SELECT * FROM resources
+  ORDER BY create_at
+  LIMIT 5;
 
--- Toutes les compétences qui ne sont associées à aucune ressource
+-- Toutes les compétences qui ne sont associées à aucune ressource:
+SELECT skills.name FROM skills
+  WHERE skills.id NOT IN (SELECT skill_id FROM resources_skills);
