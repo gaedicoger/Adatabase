@@ -3,12 +3,12 @@
 -- Créer la table themes :
 CREATE TABLE IF NOT EXISTS  public.themes
 (
-    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY, --ne peut pas être null et autogénéré
     name TEXT,
     description TEXT,
-    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, --date courante par defaut
     update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id) --indique clé primaire
 );
 
 ALTER TABLE IF EXISTS public.themes
@@ -41,9 +41,8 @@ CREATE TABLE IF NOT EXISTS public.resources
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    CONSTRAINT "theme id key" FOREIGN KEY (theme_id)
-        REFERENCES public.themes (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
+    CONSTRAINT "theme id key" FOREIGN KEY (theme_id) --contrainte pour la clé étrangère
+        REFERENCES public.themes (id) MATCH SIMPLE -- références à la table correspondante
 );
 
 ALTER TABLE IF EXISTS public.resources
@@ -59,7 +58,6 @@ CREATE TABLE IF NOT EXISTS public.resources_skills
         ON UPDATE NO ACTION,
     CONSTRAINT "skill id key" FOREIGN KEY (skill_id)
         REFERENCES public.skills (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
 );
 
 ALTER TABLE IF EXISTS public.resources_skills
