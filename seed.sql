@@ -16,7 +16,7 @@ INSERT INTO resources (title, url, description, type, is_ada, theme_id) VALUES
   ('Débuter Python',	'https://example.com/python',	'Cours Python débutant', 'guide',	true,	2),
   ('HTML / CSS Documentation',	'https://example.com/html',	'Documentation complète HTML/CSS', 'guide',	false,	1);
 
---Insérer les données pour Skills :
+-- Insérer les données pour Skills :
 INSERT INTO skills (name) VALUES
   ('JavaScript'),
   ('React'),
