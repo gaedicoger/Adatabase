@@ -1,8 +1,5 @@
 -- CREATION DES TABLES DANS L'ORDRE LOGIQUE:
 
--- Créer les données énumérées resource_type:
-CREATE TYPE resource_type AS ENUM ('guide', 'video', 'exercice', 'projet');
-
 -- Créer la table themes :
 CREATE TABLE IF NOT EXISTS  public.themes
 (
@@ -27,6 +24,9 @@ CREATE TABLE IF NOT EXISTS public.skills
 
 ALTER TABLE IF EXISTS public.skills
     OWNER to admin;
+
+-- Créer les données énumérées resource_type:
+CREATE TYPE resource_type AS ENUM ('guide', 'video', 'exercice', 'projet');
 
 -- Créer la table principale pour les ressources pédagogiques:
 CREATE TABLE IF NOT EXISTS public.resources
@@ -56,12 +56,10 @@ CREATE TABLE IF NOT EXISTS public.resources_skills
     skill_id integer,
     CONSTRAINT "resource id key" FOREIGN KEY (resource_id)
         REFERENCES public.resources (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE CASCADE,
+        ON UPDATE NO ACTION,
     CONSTRAINT "skill id key" FOREIGN KEY (skill_id)
         REFERENCES public.skills (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE
 );
 
 ALTER TABLE IF EXISTS public.resources_skills
